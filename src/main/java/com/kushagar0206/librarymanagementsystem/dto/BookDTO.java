@@ -6,9 +6,8 @@ import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
+import java.time.LocalDate;
 
-import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -20,4 +19,5 @@ public class BookDTO {
     private Long id;
     private String name;
     private String authorName;
+    private LocalDate date;
 }
