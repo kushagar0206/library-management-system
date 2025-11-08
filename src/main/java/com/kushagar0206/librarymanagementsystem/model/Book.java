@@ -20,6 +20,5 @@ public class Book {
     private Long id;
     private String name;
     private String authorName;
-    private Date date;
 
 }

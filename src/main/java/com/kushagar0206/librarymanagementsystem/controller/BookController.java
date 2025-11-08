@@ -16,12 +16,12 @@ public class BookController {
 
     @PostMapping(path = "/add")
     public BookDTO addBook(@RequestBody BookDTO bookDTO){
-        return bookService.addBook(bookDTO);
+         return bookService.addBook(bookDTO);
     }
 
     @GetMapping(path = "/getAll")
     public List<BookDTO> getAllBooks(){
-        return bookService.getAllBook();
+        return bookService.getAllBooks();
     }
 
     @GetMapping(path = "/get/{id}")
@@ -29,9 +29,9 @@ public class BookController {
         return bookService.getBookById(id);
     }
 
-    @PutMapping(path = "/update")
-    public BookDTO updatebook(Long id, BookDTO bookDTO){
-        return bookService.updateBookById(id, bookDTO);
+    @PutMapping(path = "/update/{id}")
+    public BookDTO updatebook(@PathVariable Long id, @RequestBody BookDTO bookDTO){
+        return bookService.updateBook(id, bookDTO);
     }
 
     @DeleteMapping(path = "/delete/{id}")

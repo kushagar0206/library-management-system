@@ -20,6 +20,4 @@ public class BookDTO {
     private Long id;
     private String name;
     private String authorName;
-    @DateTimeFormat
-    private Date date;
 }

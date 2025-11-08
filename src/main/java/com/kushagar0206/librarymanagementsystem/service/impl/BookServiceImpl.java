@@ -20,32 +20,31 @@ public class BookServiceImpl implements BookService{
     @Override
     public BookDTO addBook(BookDTO bookDTO) {
         Book book = bookMapper.toEntity(bookDTO);
-         bookRepository.save(book);
-         return bookMapper.toDto(bookRepository.save(book));
-    }
-
-    @Override
-    public List<BookDTO> getAllBook() {
-        return bookRepository.findAll()
-                .stream()
-                .map(bookMapper::toDto)
-                .collect(Collectors.toUnmodifiableList());
+        return bookMapper.toDTO(bookRepository.save(book));
     }
 
     @Override
     public BookDTO getBookById(Long id) {
-       Book book = bookRepository.findById(id)
-               .orElseThrow(() -> new RuntimeException("User not foung"));
-        return bookMapper.toDto(book);
+        Book book = bookRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Book not found with ID " + id));
+        return bookMapper.toDTO(book);
     }
 
     @Override
-    public BookDTO updateBookById(Long id, BookDTO bookDTO) {
-        Book existingBook = bookRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("User not found"));
-        existingBook.setName(bookDTO.getName());
-        existingBook.setAuthorName(bookDTO.getAuthorName());
-        return bookMapper.toDto(bookRepository.save(existingBook));
+    public List<BookDTO> getAllBooks() {
+        return bookRepository.findAll()
+                .stream()
+                .map(bookMapper::toDTO)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public BookDTO updateBook(Long id, BookDTO bookDTO) {
+        Book existing = bookRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Book not found with ID " + id));
+        existing.setName(bookDTO.getName());
+        existing.setAuthorName(bookDTO.getAuthorName());
+        return bookMapper.toDTO(bookRepository.save(existing));
     }
 
     @Override

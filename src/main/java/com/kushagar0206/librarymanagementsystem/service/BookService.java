@@ -7,11 +7,11 @@ public interface BookService {
 
     public BookDTO addBook(BookDTO bookDTO);
 
-    public List<BookDTO> getAllBook();
+    public List<BookDTO> getAllBooks();
 
     public BookDTO getBookById(Long id);
 
-    public BookDTO updateBookById(Long id, BookDTO bookDTO);
+    public BookDTO updateBook(Long id, BookDTO bookDTO);
 
     public String deleteBookById(Long id);
 }
