@@ -5,13 +5,13 @@ import java.util.List;
 
 public interface BookService {
 
-    public String addBook(BookDTO bookDTO);
+    public BookDTO addBook(BookDTO bookDTO);
 
     public List<BookDTO> getAllBook();
 
     public BookDTO getBookById(Long id);
 
-    public boolean updateBookById(Long id);
+    public BookDTO updateBookById(Long id, BookDTO bookDTO);
 
     public String deleteBookById(Long id);
 }

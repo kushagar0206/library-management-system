@@ -2,7 +2,9 @@ package com.kushagar0206.librarymanagmentsystem.controller;
 
 import com.kushagar0206.librarymanagmentsystem.dto.BookDTO;
 import com.kushagar0206.librarymanagmentsystem.service.BookService;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,7 +17,7 @@ public class BookController {
     private final BookService bookService;
 
     @PostMapping(path = "/add")
-    public String addBook(@RequestBody BookDTO bookDTO){
+    public BookDTO addBook(@RequestBody BookDTO bookDTO){
         return bookService.addBook(bookDTO);
     }
 
@@ -30,8 +32,8 @@ public class BookController {
     }
 
     @PutMapping(path = "/update")
-    public String updatebook(){
-        return "t";
+    public BookDTO updatebook(Long id, BookDTO bookDTO){
+        return bookService.updateBookById(id, bookDTO);
     }
 
     @DeleteMapping(path = "/delete/{id}")

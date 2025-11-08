@@ -1,45 +1,61 @@
 package com.kushagar0206.librarymanagmentsystem.service.impl;
 
+import com.kushagar0206.librarymanagmentsystem.mapper.BookMapper;
 import com.kushagar0206.librarymanagmentsystem.dto.BookDTO;
 import com.kushagar0206.librarymanagmentsystem.model.Book;
 import com.kushagar0206.librarymanagmentsystem.repository.BookRepository;
 import com.kushagar0206.librarymanagmentsystem.service.BookService;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Stream;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
 public class BookServiceImpl implements BookService{
 
-    private final BookRepository bookRepository;
+    private BookRepository bookRepository;
+    private BookMapper bookMapper;
+
+    public BookServiceImpl(BookMapper bookMapper) {
+        this.bookMapper = bookMapper;
+    }
+
+    public BookServiceImpl(BookRepository bookRepository){
+        this.bookRepository = bookRepository;
+    }
 
     @Override
-    public String addBook(BookDTO bookDTO) {
-        Book book = (Book) Stream.of(bookDTO, Book.class);
-        bookRepository.save(book);
-        return "Book Add Successfully";
+    public BookDTO addBook(BookDTO bookDTO) {
+        Book book = bookMapper.toEntity(bookDTO);
+         bookRepository.save(book);
+         return bookMapper.toDto(bookRepository.save(book));
     }
 
     @Override
     public List<BookDTO> getAllBook() {
-      List<Book> book = Collections.singletonList((Book) bookRepository.findAll());
-       List<BookDTO> bookDTO = (List<BookDTO>) Stream.of(book, BookDTO.class);
-        return bookDTO;
+        return bookRepository.findAll()
+                .stream()
+                .map(bookMapper::toDto)
+                .collect(Collectors.toUnmodifiableList());
     }
 
     @Override
     public BookDTO getBookById(Long id) {
-       Book book = (Book) bookRepository.findAllById(Collections.singleton(id));
-      BookDTO bookDTO = (BookDTO) Stream.of(book, BookDTO.class);
-        return bookDTO;
+       Book book = bookRepository.findById(id)
+               .orElseThrow(() -> new RuntimeException("User not foung"));
+        return bookMapper.toDto(book);
     }
 
     @Override
-    public boolean updateBookById(Long id) {
-        return false;
+    public BookDTO updateBookById(Long id, BookDTO bookDTO) {
+        Book existingBook = bookRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+        existingBook.setName(bookDTO.getName());
+        existingBook.setAuthorName(bookDTO.getAuthorName());
+        return bookMapper.toDto(bookRepository.save(existingBook));
     }
 
     @Override
