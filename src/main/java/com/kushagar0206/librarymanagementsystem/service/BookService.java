@@ -1,6 +1,6 @@
-package com.kushagar0206.librarymanagmentsystem.service;
+package com.kushagar0206.librarymanagementsystem.service;
 
-import com.kushagar0206.librarymanagmentsystem.dto.BookDTO;
+import com.kushagar0206.librarymanagementsystem.dto.BookDTO;
 import java.util.List;
 
 public interface BookService {

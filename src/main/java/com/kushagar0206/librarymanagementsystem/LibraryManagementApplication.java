@@ -1,4 +1,4 @@
-package com.kushagar0206.librarymanagmentsystem;
+package com.kushagar0206.librarymanagementsystem;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

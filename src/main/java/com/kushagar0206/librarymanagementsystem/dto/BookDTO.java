@@ -1,4 +1,4 @@
-package com.kushagar0206.librarymanagmentsystem.dto;
+package com.kushagar0206.librarymanagementsystem.dto;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

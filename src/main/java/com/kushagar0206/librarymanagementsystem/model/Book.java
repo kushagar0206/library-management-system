@@ -1,4 +1,4 @@
-package com.kushagar0206.librarymanagmentsystem.model;
+package com.kushagar0206.librarymanagementsystem.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
