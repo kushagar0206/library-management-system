@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #d9cfc7;
+  height: 100vh;
+  width: 100vw;
+}
+
+#navbar {
+  width: 100%;
+  padding-bottom: 0.6rem;
+  background-color: #001744;
+}
+
+#nav-text {
+  color: rgb(255, 255, 255);
+  font-size: clamp(1rem, 3vw, 2.3rem);
+}
+
+#login-box {
+  height: 0%;
+  width: 0%;
+  padding: 0rem;
+  margin: 0rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgb(0, 0, 0, 0.1);
+  align-self: center;
+}
+
+.input-group {
+  margin-bottom: 1px;
+}
+
+.input-group {
+  display: block;
+  margin-bottom: 6px;
+  color: #555;
+  font-weight: 500;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.input-group input:focus {
+  border-color: #2575fc;
+}
+
+.btn {
+  width: 100%;
+  background: #2575fc;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #1a5cd8;
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .login-box {
+    padding: 20px;
+  }
+
+  .login-box h2 {
+    font-size: 22px;
+  }
+
+  .btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
