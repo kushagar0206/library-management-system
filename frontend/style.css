@@ -16,8 +16,15 @@
 }
 
 .nav-text {
-  font-size: 1.4rem;
-  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1{
+  /**font-size: 2vw;**/
+   font-size: clamp(0.5rem, 2vw, 3rem);
+   font-weight: 600;
 }
 
 .login-container {
@@ -32,7 +39,7 @@
   background-color: #d9cfc7;
   padding: 2rem;
   border-radius: 12px;
-  width: 100%;
+  width: min(100%, 1200px);
   max-width: 380px;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
 }
