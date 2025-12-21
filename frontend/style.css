@@ -6,9 +6,9 @@
 }
 
 #navbar {
-  width: 100%;
+  width: 100vw;
+  height: 5.5vh;
   background-color: #001744;
-  padding: 1rem 2rem;
   color: white;
   display: flex;
   justify-content: center;
@@ -19,18 +19,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-h1{
-  /**font-size: 2vw;**/
-   font-size: clamp(0.5rem, 2vw, 3rem);
-   font-weight: 600;
+  font-size: 1.7rem;
+  font-weight: 600;
+  display: inline-block;
 }
 
 .login-container {
-  height: calc(100vh - 70px);
+  height: 100%;
+  width: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
   padding: 1rem;
 }
@@ -95,19 +92,25 @@ h1{
   text-decoration: underline;
 }
 
-@media (max-width: 480px) {
-  .login-box {
-    padding: 20px;
-  }
+.btn {
+  font-size: 14px;
+  padding: 10px;
+}
 
-  .login-box h2 {
-    font-size: 22px;
-  }
-
-  .btn {
-    font-size: 14px;
-    padding: 10px;
+@media screen and (max-width: 525px) {
+  .nav-text {
+    font-size: 1.4rem;
   }
 }
 
-footer
+@media screen and (max-width: 371px) {
+  .nav-text {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 326px) {
+  .nav-text {
+    font-size: 1.2rem;
+  }
+}
