@@ -7,8 +7,8 @@ function checker() {
   let email = document.querySelector("#email").value;
   let password = document.querySelector("#password").value;
 
-  if (email === "admin@2026" && password === "admin4124") {
-    window.location.href = "main.html";
+  if (email === "admin123" && password === "admin@123") {
+    window.location.href = "/frontend/pages/main.html";
   } else {
     let add = document.querySelector(".form-div");
     let error = document.createElement("p");
